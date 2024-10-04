@@ -10,7 +10,7 @@ interface productsProps {
 }
 
 export default async function ProductPage() {
-  const products: Promise<productsProps> = fetch(
+  const products: productsProps[] = await fetch(
     "https://fakestoreapi.com/products"
   ).then((res) => res.json());
 
@@ -25,6 +25,8 @@ export default async function ProductPage() {
             src={product.image}
             alt={product.title}
             className="w-32 h-32 object-cover"
+            width={24}
+            height={24}
           />
           <h2>{product.title}</h2>
           <p>{product.description}</p>
