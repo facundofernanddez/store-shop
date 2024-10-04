@@ -1,16 +1,8 @@
 import Image from "next/image";
-
-interface productsProps {
-  id: string;
-  title: string;
-  price: number;
-  category: string;
-  description: string;
-  image: string;
-}
+import { IProducts } from "../interface/products";
 
 export default async function ProductPage() {
-  const products: productsProps[] = await fetch(
+  const products: IProducts[] = await fetch(
     "https://fakestoreapi.com/products"
   ).then((res) => res.json());
 
