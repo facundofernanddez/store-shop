@@ -15,11 +15,11 @@ export default async function ProductPage() {
   ).then((res) => res.json());
 
   return (
-    <div className="flex gap-x-10 mt-5 w-full overflow-x-scroll">
+    <div className="mt-4 grid gap-y-8 gap-x-2 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
       {products.map((product) => (
         <div
           key={product.id}
-          className="flex flex-col items-center w-1/3 p-5"
+          className="flex flex-col border p-1 items-center rounded-lg"
         >
           <Image
             src={product.image}
@@ -28,8 +28,8 @@ export default async function ProductPage() {
             width={24}
             height={24}
           />
-          <h2>{product.title}</h2>
-          <p>{product.description}</p>
+          <h2 className="font-semibold line-clamp-1">{product.title}</h2>
+          <p className="line-clamp-2 text-gray-600">{product.description}</p>
           <p>$ {product.price}</p>
         </div>
       ))}
